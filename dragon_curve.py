@@ -9,19 +9,19 @@ import turtle
 
 """functions"""
 
-"""creates a new list that is the reverse of the input list called curve"""
 def reverse_curve(curve):
+    """creates a new list that is the reverse of the input list called curve"""
     reversed_curve = []
     for i in range(0, len(curve)):
         reversed_curve.append(curve[len(curve) - i - 1])
     return reversed_curve
     
-"""transforms a list according to the following:
-        L --> U
-        R --> D
-        U --> R
-        D --> L """
 def transform_curve(curve):
+    """transforms a list according to the following:
+            L --> U
+            R --> D
+            U --> R
+            D --> L """
     transformed_curve = []
     for item in curve:
         if item == "L":
@@ -34,15 +34,15 @@ def transform_curve(curve):
             transformed_curve.append("L")
     return transformed_curve
 
-"""performs one round of reverse_curve and one round of transform_curve
-   per iteration, which the user decides"""
 def dragon_curve(curve, number_of_iterations):
+    """performs one round of reverse_curve and one round of transform_curve
+       per iteration, which the user decides"""
     for i in range(number_of_iterations):
         curve += transform_curve(reverse_curve(curve))
     return curve
     
-"""draws the dragon curve using turtle grpahics"""
 def draw_curve(curve, linewidth):
+    """draws the dragon curve using turtle grpahics"""
     turtle.title("Dragon Curve")
     turtle.hideturtle()
     turtle.setup(width = 0.8, height = 0.8)
